@@ -103,6 +103,10 @@ In this example, we'll be creating an app, which displays a quesion with a list 
 5. View questions and submitted answers without logging in
 6. Login via Twitter
 
+Before we start adding this functionaly, let's first restructure the project.
+
+## Restructure
+
 #### 1. Add Packages
 
 ```shell
@@ -110,8 +114,57 @@ $ meteor add accounts-ui
 accounts-ui: Simple templates to add login widgets to an app
 $ meteor add accounts-twitter
 accounts-twitter: Login service for Twitter accounts
-$ meteor add bootstrap
-bootstrap: Front-end framework from Twitter
+$ meteor add bootstrap-3
+bootstrap-3: Provides bootstrap 3.
 ```
 
-You can read more about these packages [here](http://docs.meteor.com/#accountsui), [here](http://docs.meteor.com/#accounts_api), [here](http://docs.meteor.com/#bootstrap).
+Watch your browser as you add these. You should see the styles update almost immediately.
+
+You can read more about these packages [here](http://docs.meteor.com/#accountsui), [here](http://docs.meteor.com/#accounts_api), [here](https://github.com/mangasocial/meteor-bootstrap-3).
+
+#### 2. Add client and server folders
+
+Add two new folders - "client" and "server". Essentially, if Meteor detects a client folder, all the JavaScript within the folder will be run on the client-side, while JavaScript code found within the server folder will run only on the server-side.
+
+Within the client folder, create a file called "mainClient.js" and add the following code:
+
+```javascript
+if (Meteor.isClient) {
+  Template.hello.greeting = function () {
+    return "Welcome to mymeteor.";
+  };
+
+  Template.hello.events({
+    'click input' : function () {
+      // template data, if any, is available in 'this'
+      if (typeof console !== 'undefined')
+        console.log("You pressed the button");
+    }
+  });
+}
+```
+
+Then within the server folder, and a file called "mainServer.js" and add the following code:
+
+```javascript
+if (Meteor.isServer) {
+  Meteor.startup(function () {
+    // code to run on server at startup
+  });
+}
+```
+
+Delete the "mymeteor.js" file. If you look at your browser, everything should look the same. Your project structure should now look like this:
+
+```shell
+.
+├── client
+│   └── mainClient.js
+├── mymeteor.css
+├── mymeteor.html
+└── server
+    └── mainServer.js
+```
+
+...
+
