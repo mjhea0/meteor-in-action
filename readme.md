@@ -543,7 +543,7 @@ Test it out:
 
 ![part3-2](https://raw.github.com/mjhea0/meteor-in-action/master/images/part3-2.png)
 
-### 4. Automated Test
+#### 4. Automated Test
 
 Add the following code to "index.js":
 
@@ -628,3 +628,18 @@ Remember when we added these two packages-
 </body>
 ```
 
+Check your browser. You should see the "Configure Twitter Login" button. Go ahead and click it:
+
+![oauth](https://raw.github.com/mjhea0/meteor-in-action/master/images/oauth.png)
+
+Wow. This tells you *exactly* how to setup your app on Twitter for logging via Oauth. Follow the instructions to create the app, then copy and paste the consumer key and consumer secret into the window on the Meteor app.
+
+Next, test logging in. If all went well you should see:
+
+![oauth2](https://raw.github.com/mjhea0/meteor-in-action/master/images/oauth2.png)
+
+> If you need to add a different Twitter app to authenticate with you must drop the `meteor_accounts_loginServiceConfiguration` collection from MongoDB - `db.meteor_accounts_loginServiceConfiguration.drop()`
+
+#### 4. Automated Test
+
+...
