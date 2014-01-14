@@ -90,7 +90,7 @@ Your JS file contains both cient and server code:
   }
   ```
 
-The behavor of `{{greeting}}` in the HTML file is controlled by `Template` with the client-side code in the JS file, as well as the handling of events.
+The behavior of `{{greeting}}` in the HTML file is controlled by `Template` within the client-side code in the JS file, as well as the handling of events.
 
 ## Create a Basic App
 
