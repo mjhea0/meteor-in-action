@@ -1,13 +1,12 @@
-if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to mymeteor.";
-  };
-
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
-}
+Answers = new Meteor.Collection("answers");
+  
+Template.addAnswer.events({
+  'click input.add-question' : function(e){
+    e.preventDefault();
+    var answerText = document.getElementById("answerText").value;
+    Meteor.call("addAnswer",answerText,function(error , answerId){
+      console.log('Added answer with ID: '+answerId);
+    });
+    document.getElementById("answerText").value = "";
+  }
+});
