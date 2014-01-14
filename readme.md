@@ -40,7 +40,7 @@ $ meteor
 
 => Meteor server running on: http://localhost:3000/
 ```
-Navigate to [http://localhost:3000/
+Navigate to [http://localhost:3000/]
 (http://localhost:3000/), and you should see:
 
 ![helloworld](https://raw.github.com/mjhea0/meteor-in-action/master/helloworld.png)
