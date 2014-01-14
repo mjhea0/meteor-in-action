@@ -1,4 +1,4 @@
-# Meteor.js in Action
+# Meteor.js in Action: Create an App, Use Laika to Test
 
 Meteor is a next generation framework used for rapidly developing web apps, which seamlessly combines popular packages like MongoDB, Node.js, and jQuery, to name a few.
 
@@ -99,9 +99,9 @@ In this example, we'll be creating an app, which displays a quesion with a list 
 1. Submit answers
 2. See all submmitted answers
 3. Up or down vote answers
-4. Only answer or vote if they are logged in
-5. View questions and submitted answers without logging in
-6. Login via Twitter
+4. Login via Twitter
+5. Only answer or vote if they are logged in
+6. View questions and submitted answers without logging in
 
 Before we start adding this functionaly, let's first restructure the project.
 
@@ -598,7 +598,29 @@ $ laika
 
 Commit your code!
 
-## Users can only answer or vote if they are logged in
+## 4. User can login via Twitter
 
-Let's add the final piece of functionality.
+Remember when we added these two packages-
+
+1. `accounts-ui`
+2. `accounts-twitter`
+
+-well, let's go ahead and use them.
+
+<body>
+  <div class="container">
+    <h1>Add an answer. Or vote.</h1>
+    <div>
+      {{loginButtons}}
+    </div>
+    <br>
+    <h3><em>Question</em>: Is the world getting warmer?</h3>
+    <br>
+    <div>
+      <!-- if there is an answer, append it to the DOM -->
+      {{> addAnswer}}
+      {{> answers}}
+    </div>
+  </div>
+</body>
 
