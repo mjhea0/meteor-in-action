@@ -172,3 +172,8 @@ Since both client and server code are interconnected, we want to be able to writ
 
 Before installing Laika, make sure you have [Node.js](http://nodejs.org/), [PhantomJS](http://phantomjs.org/download.html), and [MongoDB](http://docs.mongodb.org/manual/installation/) installed. Also, run [`mongod`](http://docs.mongodb.org/v2.2/reference/mongod/) in a seperate terminal window.  
 
+Install Laika:
+
+```shell
+$ sudo npm install -g laika
+```
