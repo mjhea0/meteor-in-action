@@ -166,5 +166,9 @@ Delete the "mymeteor.js" file. If you look at your browser, everything should lo
     └── mainServer.js
 ```
 
-...
+## Testing Framework
+
+Since both client and server code are interconnected, we want to be able to write test cases that target both the client and server. [Laika](http://arunoda.github.io/laika/) is by far the best framework for this.
+
+Before installing Laika, make sure you have [Node.js](http://nodejs.org/), [PhantomJS](http://phantomjs.org/download.html), and [MongoDB](http://docs.mongodb.org/manual/installation/) installed. Also, run [`mongod`](http://docs.mongodb.org/v2.2/reference/mongod/) in a seperate terminal window.  
 
