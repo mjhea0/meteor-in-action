@@ -54,6 +54,44 @@ $ meteor --port 1337
 
 Leave the app running. The browser will automatically update as you save changes to your code.
 
+##### What's going on here?
+
+Look at your basic project structure:
+
+```shell
+.
+├── mymeteor.css
+├── mymeteor.html
+└── mymeteor.js
+```
+
+Your JS file contains both cient and server code:
+  ```javascript
+  // client!
+  if (Meteor.isClient) {
+    Template.hello.greeting = function () {
+      return "Welcome to mymeteor.";
+    };
+
+    Template.hello.events({
+      'click input' : function () {
+        // template data, if any, is available in 'this'
+        if (typeof console !== 'undefined')
+          console.log("You pressed the button");
+      }
+    });
+  }
+
+  // server!
+  if (Meteor.isServer) {
+    Meteor.startup(function () {
+      // code to run on server at startup
+    });
+  }
+  ```
+
+The behavor of `{{greeting}}` in the HTML file is controlled by `Template` with the client-side code in the JS file, as well as the handling of events.
+
 ## Create a Basic App
 
 In this example, we'll be creating an app, which -
