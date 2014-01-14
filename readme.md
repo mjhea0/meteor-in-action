@@ -300,5 +300,92 @@ First, your browser view should now look like this:
 
 ![part1](https://raw.github.com/mjhea0/meteor-in-action/master/part1.png)
 
+Next, arrange your screen so that you can view both your terminal as well as your browser. Also, open up the JS bebug console:
+
+![part1-2](https://raw.github.com/mjhea0/meteor-in-action/master/part1-2.png)
+
+Then, just like in the screenshot above, add an answer. On the client side, you should see the MongoDB ID - i.e., `Added answer with ID: ECrTqRQha7vpXu78q`, which should match the ID on the server side:
+
+```shell
+I20140114-07:38:27.061(-7)? Adding Answer ...
+I20140114-07:38:27.340(-7)? ECrTqRQha7vpXu78q
+```
+
+### 5. Automated Test
+
+Now, add a Laika test by adding the following code to "index.js":
+
+```javascript
+'use strict'
+
+var assert = require('assert');
+
+suite('submitAnswers', function() {
+
+  // ensure that -
+  // (1) the "Answers" collection exists
+  // (2) we can connect to the collection
+  // (3) the collection is empty
+  test('server initialization', function(done, server) {
+    server.eval(function() {
+      var collection = Answers.find().fetch();
+      emit('collection', collection);
+    }).once('collection', function(collection) {
+      assert.equal(collection.length, 0);
+      done();
+    });
+  });
+
+  // essure that -
+  // (1) we can add data to the collection
+  // (2) after data is added, we can retreive it
+  test('server insert : OK', function(done, server, client) {
+    server.eval(function() {
+      Answers.insert({answerText: "whee!"  });
+      var collection = Answers.find().fetch();
+      emit('collection', collection);
+    }).once('collection', function(collection) {
+      assert.equal(collection.length, 1);
+      done();
+    });
+
+    client.once('collection', function(collection) {
+      assert.equal(Answers.find().fetch().length, 1);
+      done();
+    });
+  });
+
+});
+```
+
+##### What's going on here?
+
+Basically, we are just testing that the Answers collecton exists and is accesible. See the inline comments for more info.
+
+##### Run the test
+
+If all goes well, you should see this:
+
+```shell
+$ laika
+
+  injecting laika...
+  loading phantomjs...
+  loading initial app pool...
 
 
+  submitAnswers
+    ✓ server initialization (1517ms)
+    ✓ server insert : OK
+
+
+  2 passing (2s)
+
+  cleaning up injected code
+```
+
+Congrats! You just wrote your first test!
+
+> If you have not initilizaed a Git repo yet, go ahead and do this now. Then commit the code.
+
+## Users can see all submmitted answers
