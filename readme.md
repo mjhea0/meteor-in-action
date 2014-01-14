@@ -40,13 +40,32 @@ $ meteor
 
 => Meteor server running on: http://localhost:3000/
 ```
-Navigate to [http://localhost:3000/]
+
+We just initialized the Meteor server. Navigate to [http://localhost:3000/]
 (http://localhost:3000/), and you should see:
 
 ![helloworld](https://raw.github.com/mjhea0/meteor-in-action/master/helloworld.png)
 
+If port 3000 is unavailable, you can use `–port` as an option:
+
+```shell
+$ meteor --port 1337
+```
+
 Leave the app running. The browser will automatically update as you save changes to your code.
 
 ## Create a Basic App
+
+In this example, we'll be creating an app, which -
+
+1. Displays a question
+2. Users can submit an answer
+3. Users can see all answers
+4. Users can upvote or downvote answers
+5. Users must be logged in to answer or vote
+6. Users can view questions and submitted answer without logging in
+7. Users login via Twitter
+
+ 
 
 ...
