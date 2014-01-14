@@ -8,6 +8,8 @@ With that, let's start building …
 
 > Please note: This tutorial uses Meteor version `0.7.0.1` - which, as of writing, is the latest version
 
+***!!! ADD TABLE OF CONTENTS !!!***
+
 ## Setup a Project
 
 #### 1. Install Meteor and the Meteor Package Manager, Meteorite:
@@ -718,6 +720,7 @@ var answerId = Answers.insert({
         {{/if}}
         {{#unless currentUser}}
           {{> login}}
+          {{loginButtons}}
         {{/unless}}
       </div>
   </div>
@@ -763,9 +766,49 @@ var answerId = Answers.insert({
 
 #### 4. Manual Test
 
-1. Logout
-2. Dump database
-3. Login
+Open your browser. If you're logged in, go ahead and log out. You should see this:
+
+![loggedout](https://raw.github.com/mjhea0/meteor-in-action/master/images/loggedout.png)
+
+Now, before logging in to test. Let's dump the answers collection so that each record in the collection has a user associated with it. To do this, make sure your meteor app is running, then open a new terminal window and navigate to your app's project root. 
+
+Follow these commands to dump the collection:
+
+```shell
+$ meteor mongo
+MongoDB shell version: 2.4.8
+connecting to: 127.0.0.1:3002/meteor
+meteor:PRIMARY> show dbs;
+local	0.0625GB
+meteor	0.0625GB
+meteor:PRIMARY> use meteor;
+switched to db meteor
+meteor:PRIMARY> show collections;
+answers
+meteor_accounts_loginServiceConfiguration
+questions
+system.indexes
+users
+meteor:PRIMARY> db.answers.drop()
+true
+```
+Back on your browser, go ahead and log back in. Add an answer.
+
+Finally, jump back to the mongo shell:
+
+```shell
+meteor:PRIMARY> show collections;
+answers
+meteor_accounts_loginServiceConfiguration
+questions
+system.indexes
+users
+meteor:PRIMARY> db.answers.find()
+{ "_id" : "cbWebazW8eehJkaXL", "answerText" : "This is my first test while logged in.", "no" : 2, "submittedBy" : "Ex2bHmCgkygNbByEc", "submittedOn" : ISODate("2014-01-14T20:07:53.080Z"), "yes" : 2 }
+```
+
+Success! There is a key/value pair for the user - `"submittedBy" : "Ex2bHmCgkygNbByEc"`.
+
 
 #### 5. Automated Test
 
