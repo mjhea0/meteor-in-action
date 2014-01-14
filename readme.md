@@ -294,5 +294,11 @@ Notice how we established the Mongo collection on both the client and server.
 </template>
 ```
 
+#### 4. Manually Test
+
+First, your browser view should now look like this:
+
+![part1](https://raw.github.com/mjhea0/meteor-in-action/master/part1.png)
+
 
 
