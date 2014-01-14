@@ -103,6 +103,15 @@ In this example, we'll be creating an app, which displays a quesion with a list 
 5. View questions and submitted answers without logging in
 6. Login via Twitter
 
+#### 1. Add Packages
 
+```shell
+$ meteor add accounts-ui
+accounts-ui: Simple templates to add login widgets to an app
+$ meteor add accounts-twitter
+accounts-twitter: Login service for Twitter accounts
+$ meteor add bootstrap
+bootstrap: Front-end framework from Twitter
+```
 
-...
+You can read more about these packages [here](http://docs.meteor.com/#accountsui), [here](http://docs.meteor.com/#accounts_api), [here](http://docs.meteor.com/#bootstrap).
