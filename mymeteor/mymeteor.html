@@ -15,6 +15,7 @@
     <div>
       <!-- if there is an answer, append it to the DOM -->
       {{> addAnswer}}
+      {{> answers}}
     </div>
   </div>
 </body>
@@ -22,5 +23,23 @@
 <template name="addAnswer">
   <textarea class="form-control" rows="3" name="answerText" id="answerText" placeholder="Add Your Answer .."></textarea>
   <br>
-  <input type="button" class="btn-primary add-question btn-md" value="Add Answer"/>
+  <input type="button" class="btn-primary add-answer btn-md" value="Add Answer"/>
+</template>
+
+<template name="answers">
+  <br>
+  <br>
+  <h2>All Questions</h2>
+  {{#each items}}
+    {{> answer}}
+  {{/each}}
+</template>
+
+<template name="answer">
+  <div>
+    <p class="lead">
+      {{answerText}}
+      <br>
+    </p>
+  </div>
 </template>

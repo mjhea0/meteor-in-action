@@ -225,7 +225,7 @@ Now let's start building.
 Answers = new Meteor.Collection("answers");
   
 Template.addAnswer.events({
-  'click input.add-question' : function(e){
+  'click input.add-answer' : function(e){
     e.preventDefault();
     var answerText = document.getElementById("answerText").value;
     Meteor.call("addAnswer",answerText,function(error , answerId){
@@ -290,7 +290,7 @@ Notice how we established the Mongo collection on both the client and server.
 <template name="addAnswer">
   <textarea class="form-control" rows="3" name="answerText" id="answerText" placeholder="Add Your Answer .."></textarea>
   <br>
-  <input type="button" class="btn-primary add-question btn-md" value="Add Answer"/>
+  <input type="button" class="btn-primary add-answer btn-md" value="Add Answer"/>
 </template>
 ```
 
@@ -389,3 +389,84 @@ Congrats! You just wrote your first test!
 > If you have not initilizaed a Git repo yet, go ahead and do this now. Then commit the code.
 
 ## Users can see all submmitted answers
+
+#### 1. Client JS
+
+Add the following template to pull out the data from the collection and sort in descending order.
+
+```javascript
+return Answers.find({},{sort:{'submittedOn':-1}});
+```
+#### 2. HTML
+
+Add the templates to the HTML file:
+
+```html
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>One Question. Several Answers.</title>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add an answer. Or vote.</h1>
+    <h3><em>Question</em>: Is the world getting warmer?</h3>
+    <br>
+    <div>
+      <!-- if there is an answer, append it to the DOM -->
+      {{> addAnswer}}
+      {{> answers}}
+    </div>
+  </div>
+</body>
+
+<template name="addAnswer">
+  <textarea class="form-control" rows="3" name="answerText" id="answerText" placeholder="Add Your Answer .."></textarea>
+  <br>
+  <input type="button" class="btn-primary add-answer btn-md" value="Add Answer"/>
+</template>
+
+<template name="answers">
+  <br>
+  <br>
+  <h2>All Questions</h2>
+  {{#each items}}
+    {{> answer}}
+  {{/each}}
+</template>
+
+<template name="answer">
+  <div>
+    <p class="lead">
+      {{answerText}}
+      <br>
+    </p>
+  </div>
+</template>
+```
+
+#### 3. Manually Test
+
+You should see all of the submitted answers:
+
+![part2](https://raw.github.com/mjhea0/meteor-in-action/master/images/part2.png)
+
+Go ahead and add new answers. They should immediately appear.
+
+As far as automated testing goes, we are already testing this with this code:
+
+```javascript
+client.once('collection', function(collection) {
+  assert.equal(Answers.find().fetch().length, 1);
+  done();
+```
+
+## Users can up or down vote answers
+
+...
+
+
