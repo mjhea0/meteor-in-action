@@ -642,4 +642,11 @@ Next, test logging in. If all went well you should see:
 
 #### 4. Automated Test
 
+Since the Twitter login is part of a pre-written package, we do not need to do any unit tests. In general, unit tests should be reserved to code that you have written. Other people's code should be tested within the scope of a functional test. Although you can do functional tests with Laik, I prefer to use a different testing framework. We will write a functional test at the end.
+
+Commit your code. Take a breath. Move on.
+
+## Users can nnly answer or vote if they are logged in
+
 ...
+
