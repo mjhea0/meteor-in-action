@@ -171,6 +171,37 @@ Your project structure should now look like this:
 
 ```
 
+#### 3. Update HTML
+
+Update "mymeteor.html":
+
+```html
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>One Question. Several Answers.</title>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    {{> hello}}
+  </div>
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input type="button" value="Click" />
+</template>
+```
+
+Your app should now look like this:
+
+![helloworld-redux](https://raw.github.com/mjhea0/meteor-in-action/master/helloworld-redux.png)
+
 ## Testing Framework
 
 Since both client and server code are interconnected, we want to be able to write test cases that target both the client and server. [Laika](http://arunoda.github.io/laika/) is by far the best framework for this.
