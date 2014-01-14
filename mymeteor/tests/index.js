@@ -23,10 +23,12 @@ suite('submitAnswers', function() {
   // (2) after data is added, we can retreive it
   test('server insert : OK', function(done, server, client) {
     server.eval(function() {
-      Answers.insert({answerText: "whee!"  });
+      Answers.insert({answerText: "whee!"});
+      Answers.update({answerText: "whee!"},{$inc : {'yes':1}});
       var collection = Answers.find().fetch();
       emit('collection', collection);
     }).once('collection', function(collection) {
+      // console.log(collection)
       assert.equal(collection.length, 1);
       done();
     });
@@ -39,3 +41,22 @@ suite('submitAnswers', function() {
 
 });
 
+suite('addVotes', function() {
+
+  // essure that -
+  // (1) we can add data to the collection
+  // (2) after data is added, we can retreive it
+  test('server insert votes : OK', function(done, server, client) {
+    server.eval(function() {
+      Answers.insert({answerText: "wheeeeeeeeeee!"});
+      Answers.update({answerText: "wheeeeeeeeeee!"},{$inc : {'yes':1}});
+      var voteCollection = Answers.find().fetch();
+      emit('collection', voteCollection);
+    }).once('collection', function(voteCollection) {
+      // console.log(collection[0].yes)
+      assert.equal(voteCollection[0].yes, 1);
+      done();
+    });
+  });
+
+});

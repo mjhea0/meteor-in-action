@@ -543,3 +543,62 @@ Test it out:
 
 ![part3-2](https://raw.github.com/mjhea0/meteor-in-action/master/images/part3-2.png)
 
+### 4. Automated Test
+
+Add the following code to "index.js":
+
+```javascript
+suite('addVotes', function() {
+
+  // essure that -
+  // (1) we can add data to the collection
+  // (2) after data is added, we can retreive it
+  test('server insert votes : OK', function(done, server, client) {
+    server.eval(function() {
+      Answers.insert({answerText: "wheeeeeeeeeee!"});
+      Answers.update({answerText: "wheeeeeeeeeee!"},{$inc : {'yes':1}});
+      var voteCollection = Answers.find().fetch();
+      emit('collection', voteCollection);
+    }).once('collection', function(voteCollection) {
+      // console.log(collection[0].yes)
+      assert.equal(voteCollection[0].yes, 1);
+      done();
+    });
+  });
+
+});
+```
+
+##### What's going on here?
+
+Similar to the last test, we are just testing that the collecton exists and that it returns certain data. This time, though, we are not just testing that the collection exists, but that the `yes` key contains a value of 1.
+
+##### Run the test
+
+```shell
+$ laika
+
+  injecting laika...
+  loading phantomjs...
+  loading initial app pool...
+
+
+  submitAnswers
+    ✓ server initialization (1882ms)
+    ✓ server insert : OK (2957ms)
+
+  addVotes
+    ✓ server insert votes : OK (3105ms)
+
+
+  3 passing (8s)
+
+  cleaning up injected code
+```
+
+Commit your code!
+
+## Users can only answer or vote if they are logged in
+
+Let's add the final piece of functionality.
+
