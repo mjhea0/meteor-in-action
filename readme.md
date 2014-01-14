@@ -47,4 +47,6 @@ Navigate to [http://localhost:3000/]
 
 Leave the app running. The browser will automatically update as you save changes to your code.
 
+## Create a Basic App
+
 ...
