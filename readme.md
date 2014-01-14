@@ -6,7 +6,7 @@ Check out the excellent Meteor [documentation](http://docs.meteor.com/) for more
 
 With that, let's start building …
 
-> Please note: This tutorial uses Meteor version `0.6.0`
+> Please note: This tutorial uses Meteor version `0.7.0.1` - which, as of writing, is the latest version
 
 ## Setup a Project
 
@@ -66,6 +66,6 @@ In this example, we'll be creating an app, which -
 6. Users can view questions and submitted answer without logging in
 7. Users login via Twitter
 
- 
+
 
 ...
