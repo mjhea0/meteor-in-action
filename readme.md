@@ -44,7 +44,7 @@ $ meteor
 We just initialized the Meteor server. Navigate to [http://localhost:3000/]
 (http://localhost:3000/), and you should see:
 
-![helloworld](https://raw.github.com/mjhea0/meteor-in-action/images/master/helloworld.png)
+![helloworld](https://raw.github.com/mjhea0/meteor-in-action/master/images/helloworld.png)
 
 If port 3000 is unavailable, you can use `–port` as an option:
 
@@ -200,7 +200,7 @@ Update "mymeteor.html":
 
 Your app should now look like this:
 
-![helloworld-redux](https://raw.github.com/mjhea0/meteor-in-action/images/master/helloworld-redux.png)
+![helloworld-redux](https://raw.github.com/mjhea0/meteor-in-action/master/images/helloworld-redux.png)
 
 ## Testing Framework
 
@@ -298,11 +298,11 @@ Notice how we established the Mongo collection on both the client and server.
 
 First, your browser view should now look like this:
 
-![part1](https://raw.github.com/mjhea0/meteor-in-action/images/master/part1.png)
+![part1](https://raw.github.com/mjhea0/meteor-in-action/master/images/part1.png)
 
 Next, arrange your screen so that you can view both your terminal as well as your browser. Also, open up the JS bebug console:
 
-![part1-2](https://raw.github.com/mjhea0/meteor-in-action/images/master/part1-2.png)
+![part1-2](https://raw.github.com/mjhea0/meteor-in-action/master/images/part1-2.png)
 
 Then, just like in the screenshot above, add an answer. On the client side, you should see the MongoDB ID - i.e., `Added answer with ID: ECrTqRQha7vpXu78q`, which should match the ID on the server side:
 
