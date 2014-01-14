@@ -10,17 +10,21 @@
 <body>
   <div class="container">
     <h1>Add an answer. Or vote.</h1>
-    <div>
+    {{#if currentUser}}
       {{loginButtons}}
-    </div>
+    {{/if}}
     <br>
     <h3><em>Question</em>: Is the world getting warmer?</h3>
     <br>
-    <div>
-      <!-- if there is an answer, append it to the DOM -->
-      {{> addAnswer}}
-      {{> answers}}
-    </div>
+      <div>
+        {{#if currentUser}}
+          {{> addAnswer}}
+          {{> answers}}
+        {{/if}}
+        {{#unless currentUser}}
+          {{> login}}
+        {{/unless}}
+      </div>
   </div>
 </body>
 
@@ -44,8 +48,12 @@
     <p class="lead">
       {{answerText}}
       <br>
-      <a class="btn btn-xs btn-success yes" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
-      <a class="btn btn-xs btn-primary no" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+      <a class="btn btn-xs btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+      <a class="btn btn-xs btn-primary no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
     </p>
   </div>
+</template>
+
+<template name="login">
+  <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
 </template>

@@ -1,4 +1,4 @@
-# Meteor.js in Action: Create an App, Test with Liaka
+# Meteor.js in Action: Create an App, Test with Laika
 
 Meteor is a next generation framework used for rapidly developing web apps, which seamlessly combines popular packages like MongoDB, Node.js, and jQuery, to name a few.
 
@@ -101,7 +101,7 @@ In this example, we'll be creating an app, which displays a quesion with a list 
 3. Up or down vote answers
 4. Login via Twitter
 5. Only answer or vote if they are logged in
-6. View questions and submitted answers without logging in
+6. View question but not submitted answers without logging in
 
 Before we start adding this functionaly, let's first restructure the project.
 
@@ -205,6 +205,8 @@ Your app should now look like this:
 ## Testing Framework
 
 Since both client and server code are interconnected, we want to be able to write test cases that target both the client and server. [Laika](http://arunoda.github.io/laika/) is by far the best framework for this.
+
+For this reason, your tests will run bit slower.
 
 Before installing Laika, make sure you have [Node.js](http://nodejs.org/), [PhantomJS](http://phantomjs.org/download.html), and [MongoDB](http://docs.mongodb.org/manual/installation/) installed. Also, run [`mongod`](http://docs.mongodb.org/v2.2/reference/mongod/) in a seperate terminal window.  
 
@@ -361,6 +363,8 @@ suite('submitAnswers', function() {
 ##### What's going on here?
 
 Basically, we are just testing that the Answers collecton exists and is accesible. See the inline comments for more info.
+
+You may have noticed that Laika runs a bit slow. Well, that's normal - because Laika creates a new, isolated app and database for each test, and each test is also isolated for the other, so you don't have to worry about dumping the database after each test.
 
 ##### Run the test
 
@@ -646,7 +650,132 @@ Since the Twitter login is part of a pre-written package, we do not need to do a
 
 Commit your code. Take a breath. Move on.
 
-## Users can nnly answer or vote if they are logged in
+## Users can only answer or vote if they are logged in
 
-...
+Finally, let's add some restrictions so that a user must be logged in before adding answers or voting.
+
+#### 1. Client JS
+
+```javascript
+Template.answer.events({
+  'click': function () {
+    Session.set("selected_answer", this._id);
+  },
+  'click a.yes' : function(e) {
+    e.preventDefault();
+    if(Meteor.userId()){
+      var answerId = Session.get('selected_answer');
+      console.log('updating yes count for answerId '+answerId);
+      Meteor.call("incrementYesVotes",answerId);
+    }
+  }, 
+  'click a.no': function(e) {
+    e.preventDefault();
+    if(Meteor.userId()){
+      var answerId = Session.get('selected_answer');
+      console.log('updating no count for answerId '+answerId);
+      Meteor.call("incrementNoVotes",answerId);
+    }
+  } 
+});
+```
+
+#### 2. Server JS
+
+```javascript
+var answerId = Answers.insert({
+  'answerText' : answerText,
+  'submittedOn': new Date(),
+  'submittedBy' : Meteor.userId()
+});
+```
+
+#### 3. HTML
+
+```html
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>One Question. Several Answers.</title>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add an answer. Or vote.</h1>
+    {{#if currentUser}}
+      {{loginButtons}}
+    {{/if}}
+    <br>
+    <h3><em>Question</em>: Is the world getting warmer?</h3>
+    <br>
+      <div>
+        {{#if currentUser}}
+          {{> addAnswer}}
+          {{> answers}}
+        {{/if}}
+        {{#unless currentUser}}
+          {{> login}}
+        {{/unless}}
+      </div>
+  </div>
+</body>
+
+<template name="addAnswer">
+  <textarea class="form-control" rows="3" name="answerText" id="answerText" placeholder="Add Your Answer .."></textarea>
+  <br>
+  <input type="button" class="btn-primary add-answer btn-md" value="Add Answer"/>
+</template>
+
+<template name="answers">
+  <br>
+  <br>
+  <h2>All Questions</h2>
+  {{#each items}}
+    {{> answer}}
+  {{/each}}
+</template>
+
+<template name="answer">
+  <div>
+    <p class="lead">
+      {{answerText}}
+      <br>
+      <a class="btn btn-xs btn-success yes {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+      <a class="btn btn-xs btn-primary no {{#unless currentUser}}disabled{{/unless}}" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+    </p>
+  </div>
+</template>
+
+<template name="login">
+  <h4>Sign in using Twitter to submit new questions or to vote on existing questions.</h4>
+</template>
+```
+
+##### What's going on here?
+
+1. `if(Meteor.userId()){}` prevents a user from voting if they are not logged in, but only on the JS side. In other words, the user can still click the button; it's just nothing will happen if they do.
+2. `'submittedBy' : Meteor.userId()` adds the logged in user to the collection
+3. `{{#unless currentUser}}disabled{{/unless}}` disables the yes or no button. Now the it can't even be clicked unless the user is logged in.
+4. `{{#if currentUser}} ... {{/if}}` and `{{#unless currentUser}} ... {{/unless}}` are used to display certain templates if the user is logged in or not.
+
+#### 4. Manual Test
+
+1. Logout
+2. Dump database
+3. Login
+
+#### 5. Automated Test
+
+Yay. Write that test.
+
+## Update Styles
+
+Yay! Add a custom css file.
+
+## What's next?
+
+Yay! Write some challenges!
 

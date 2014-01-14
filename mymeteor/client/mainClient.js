@@ -17,15 +17,19 @@ Template.answer.events({
   },
   'click a.yes' : function(e) {
     e.preventDefault();
-    var answerId = Session.get('selected_answer');
-    console.log('updating yes count for answerId '+answerId);
-    Meteor.call("incrementYesVotes",answerId);
+    if(Meteor.userId()){
+      var answerId = Session.get('selected_answer');
+      console.log('updating yes count for answerId '+answerId);
+      Meteor.call("incrementYesVotes",answerId);
+    }
   }, 
   'click a.no': function(e) {
     e.preventDefault();
-    var answerId = Session.get('selected_answer');
-    console.log('updating no count for answerId '+answerId);
-    Meteor.call("incrementNoVotes",answerId);
+    if(Meteor.userId()){
+      var answerId = Session.get('selected_answer');
+      console.log('updating no count for answerId '+answerId);
+      Meteor.call("incrementNoVotes",answerId);
+    }
   }
 });
 
