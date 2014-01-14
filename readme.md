@@ -218,3 +218,81 @@ All of our tests will reside in the "index.js" file within the "tests" folder.
 Now let's start building.
 
 ## Users can submit answers
+
+#### 1. Client JS
+
+```javascript
+Answers = new Meteor.Collection("answers");
+  
+Template.addAnswer.events({
+  'click input.add-question' : function(e){
+    e.preventDefault();
+    var answerText = document.getElementById("answerText").value;
+    Meteor.call("addAnswer",answerText,function(error , answerId){
+      console.log('Added answer with ID: '+answerId);
+    });
+    document.getElementById("answerText").value = "";
+  }
+});
+```
+##### What's going on?
+
+First, we have a click event, which grabs the value from the input box. This value is then passed to the server side via the [`.call()`](http://docs.meteor.com/#meteor_call) - which is used to invoke a method. `answerId` is then the call back, which is then assigned to the console.log.
+
+#### 1. Server JS
+
+```javascript
+Answers = new Meteor.Collection("answers");
+
+Meteor.methods({
+  addAnswer : function(answerText){
+    console.log('Adding Answer ...');
+    var answerId = Answers.insert({
+      'answerText' : answerText,
+      'submittedOn': new Date()
+    });
+    console.log(answerId)
+    return answerId;
+  }
+});
+```
+
+##### What's going on?
+
+On the client side we passed the `answerText` - inputted value - to the server side. This answer is the added to the MongoDB collection, then we return the answerID, which is handled on the client side.
+
+Notice how we established the Mongo collection on both the client and server.
+
+#### 3. HTML
+
+```html
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>One Question. Several Answers.</title>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.3/yeti/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add an answer. Or vote.</h1>
+    <h3><em>Question</em>: Is the world getting warmer?</h3>
+    <br>
+    <div>
+      <!-- if there is an answer, append it to the DOM -->
+      {{> addAnswer}}
+    </div>
+  </div>
+</body>
+
+<template name="addAnswer">
+  <textarea class="form-control" rows="3" name="answerText" id="answerText" placeholder="Add Your Answer .."></textarea>
+  <br>
+  <input type="button" class="btn-primary add-question btn-md" value="Add Answer"/>
+</template>
+```
+
+
+
