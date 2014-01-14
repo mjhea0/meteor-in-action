@@ -94,15 +94,14 @@ The behavior of `{{greeting}}` in the HTML file is controlled by `Template` with
 
 ## Create a Basic App
 
-In this example, we'll be creating an app, which -
+In this example, we'll be creating an app, which displays a quesion with a list of answers. Users can -
 
-1. Displays a question
-2. Users can submit an answer
-3. Users can see all answers
-4. Users can upvote or downvote answers
-5. Users must be logged in to answer or vote
-6. Users can view questions and submitted answer without logging in
-7. Users login via Twitter
+1. Submit answera
+2. See all answers
+3. Upvote or downvote answers
+4. Must be logged-in to answer or vote
+5. View questions and submitted answers without logging in
+6. Login via Twitter
 
 
 
