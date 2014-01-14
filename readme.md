@@ -96,10 +96,10 @@ The behavior of `{{greeting}}` in the HTML file is controlled by `Template` with
 
 In this example, we'll be creating an app, which displays a quesion with a list of answers. Users can -
 
-1. Submit answera
-2. See all answers
-3. Upvote or downvote answers
-4. Must be logged-in to answer or vote
+1. Submit answers
+2. See all submmitted answers
+3. Up or down vote answers
+4. Only answer or vote if they are logged in
 5. View questions and submitted answers without logging in
 6. Login via Twitter
 
