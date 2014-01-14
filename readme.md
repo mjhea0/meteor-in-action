@@ -215,6 +215,6 @@ $ sudo npm install -g laika
 ```
 All of our tests will reside in the "index.js" file within the "tests" folder.
  
-Now let's start building, using the principles of TDD.
+Now let's start building.
 
 ## Users can submit answers
