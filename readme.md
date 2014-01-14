@@ -1,6 +1,6 @@
 # Meteor.js in Action
 
-Meteor is a next generation framework used for rapidly developing web apps, which seamlessly combes popular packages like MongoDB, Node.js, and jQuery, to name a few.
+Meteor is a next generation framework used for rapidly developing web apps, which seamlessly combines popular packages like MongoDB, Node.js, and jQuery, to name a few.
 
 Check out the excellent Meteor [documentation](http://docs.meteor.com/) for more information. 
 
