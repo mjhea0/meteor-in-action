@@ -11,6 +11,24 @@ Template.addAnswer.events({
   }
 });
 
+Template.answer.events({
+  'click': function () {
+    Session.set("selected_answer", this._id);
+  },
+  'click a.yes' : function(e) {
+    e.preventDefault();
+    var answerId = Session.get('selected_answer');
+    console.log('updating yes count for answerId '+answerId);
+    Meteor.call("incrementYesVotes",answerId);
+  }, 
+  'click a.no': function(e) {
+    e.preventDefault();
+    var answerId = Session.get('selected_answer');
+    console.log('updating no count for answerId '+answerId);
+    Meteor.call("incrementNoVotes",answerId);
+  }
+});
+
 Template.answers.items = function(){
   return Answers.find({},{sort:{'submittedOn':-1}});
 };

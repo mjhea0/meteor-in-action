@@ -465,8 +465,81 @@ client.once('collection', function(collection) {
   done();
 ```
 
+Commit your code.
+
 ## Users can up or down vote answers
 
-...
+Let's add some voting capabilities. Think about what we need to add for this.
 
+1. Update collection to store votes
+2. Update HTML to add vote buttons
+3. Event handler for when the user clicks a button so that the collection is updated
+
+#### 1. Server JS
+
+Add the following code:
+
+```javascript
+incrementYesVotes : function(answerID){
+  console.log(answerID);
+  Answers.update(answerID,{$inc : {'yes':1}});
+},
+incrementNoVotes : function(answerID){
+  console.log(answerID);
+  Answers.update(answerID,{$inc : {'no':1}});
+}
+```
+
+This utilizes Meteor's collection update to increment the counter.
+
+#### 2. Client JS
+
+Add the event handler:
+
+```javascript
+Template.answer.events({
+  'click': function () {
+    Session.set("selected_answer", this._id);
+  },
+  'click a.yes' : function(e) {
+    e.preventDefault();
+    var answerId = Session.get('selected_answer');
+    console.log('updating yes count for answerId '+answerId);
+    Meteor.call("incrementYesVotes",answerId);
+  }, 
+  'click a.no': function(e) {
+    e.preventDefault();
+    var answerId = Session.get('selected_answer');
+    console.log('updating no count for answerId '+answerId);
+    Meteor.call("incrementNoVotes",answerId);
+  }
+});
+```
+
+#### 3. HTML
+
+Update the `answer` template:
+
+```html
+<template name="answer">
+  <div>
+    <p class="lead">
+      {{answerText}}
+      <br>
+      <a class="btn btn-xs btn-success yes" href="#"><i class="icon-thumbs-up"></i> Yes {{yes}}</a>
+      <a class="btn btn-xs btn-primary no" href="#"><i class="icon-thumbs-down"></i> No {{no}}</a>
+    </p>
+  </div>
+</template>
+```
+
+#### 3. Manually Test
+
+You should see Yes and No buttons below the answers:
+
+![part3](https://raw.github.com/mjhea0/meteor-in-action/master/images/part3.png)
+
+Test it out:
+
+![part3-2](https://raw.github.com/mjhea0/meteor-in-action/master/images/part3-2.png)
 
