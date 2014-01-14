@@ -154,7 +154,9 @@ if (Meteor.isServer) {
 }
 ```
 
-Delete the "mymeteor.js" file. If you look at your browser, everything should look the same. Your project structure should now look like this:
+Delete the "mymeteor.js" file. If you look at your browser, everything should look the same. Add one more folder called "tests", which as you probably guessed will include our unit tests along with a file called "index.js".
+
+Your project structure should now look like this:
 
 ```shell
 .
@@ -162,8 +164,11 @@ Delete the "mymeteor.js" file. If you look at your browser, everything should lo
 │   └── mainClient.js
 ├── mymeteor.css
 ├── mymeteor.html
-└── server
-    └── mainServer.js
+├── server
+│   └── mainServer.js
+└── tests
+    └── index.js
+
 ```
 
 ## Testing Framework
@@ -177,3 +182,8 @@ Install Laika:
 ```shell
 $ sudo npm install -g laika
 ```
+All of our tests will reside in the "index.js" file within the "tests" folder.
+ 
+Now let's start building, using the principles of TDD.
+
+## Users can submit answers
