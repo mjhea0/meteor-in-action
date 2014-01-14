@@ -1,4 +1,4 @@
-# Meteor.js in Action: Create an App, Use Laika to Test
+# Meteor.js in Action: Create an App, Test with Liaka
 
 Meteor is a next generation framework used for rapidly developing web apps, which seamlessly combines popular packages like MongoDB, Node.js, and jQuery, to name a few.
 
@@ -598,7 +598,7 @@ $ laika
 
 Commit your code!
 
-## 4. User can login via Twitter
+## User can login via Twitter
 
 Remember when we added these two packages-
 
@@ -607,6 +607,9 @@ Remember when we added these two packages-
 
 -well, let's go ahead and use them.
 
+#### 1. Update HTML
+
+```html
 <body>
   <div class="container">
     <h1>Add an answer. Or vote.</h1>
@@ -623,4 +626,5 @@ Remember when we added these two packages-
     </div>
   </div>
 </body>
+```
 
