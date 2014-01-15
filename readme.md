@@ -8,7 +8,23 @@ With that, let's start building …
 
 > Please note: This tutorial uses Meteor version `0.7.0.1` - which, as of writing, is the latest version
 
-***!!! ADD TABLE OF CONTENTS !!!***
+## TOC
+
+***!!! ADD LINKS TO THE TABLE OF CONTENTS !!!***
+
+1. Setup a Project
+2. Create a Basic App
+3. Restructure
+4. Testing Framework
+5. Users can submit answers
+6. Users can see all submitted answers
+7. Users can up or down vote answers
+8. Users can login via Twitter
+9. Users can only answer or vote if they are logged in
+10. Update Styles
+11. Depoyment
+12. What's next?
+13. Conculsion
 
 ## Setup a Project
 
@@ -616,7 +632,7 @@ $ laika
 
 Commit your code!
 
-## User can login via Twitter
+## Users can login via Twitter
 
 Remember when we added these two packages-
 
@@ -829,6 +845,8 @@ Coming soon! <3
 ## Update Styles
 
 Coming soon, perhaps! <3
+
+## Deployment
 
 ## What's next?
 
