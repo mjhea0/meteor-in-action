@@ -317,6 +317,16 @@ I20140114-07:38:27.061(-7)? Adding Answer ...
 I20140114-07:38:27.340(-7)? ECrTqRQha7vpXu78q
 ```
 
+**Want to see something cool?** Of course you do.
+
+Open up your browser's console. Let's add an answer:
+
+```shell
+> Answers.insert({answerText: 'Client Side Console Test!'});
+"3D9nQYn87gXQX66ha"
+```
+You should see the answer apper on the page instantly!!
+
 ### 5. Automated Test
 
 Now, add a Laika test by adding the following code to "index.js":
