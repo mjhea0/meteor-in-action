@@ -814,7 +814,7 @@ Success! There is a key/value pair for the user - `"submittedBy" : "Ex2bHmCgkygN
 
 #### 5. Automated Test
 
-Yay. Write that test.
+Coming soon! <3
 
 ## Update Styles
 
