@@ -824,3 +824,5 @@ Coming soon, perhaps! <3
 
 Yay! Write some challenges!
 
+## Conclusion
+
