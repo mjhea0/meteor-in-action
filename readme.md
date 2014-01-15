@@ -818,7 +818,7 @@ Coming soon! <3
 
 ## Update Styles
 
-Yay! Add a custom css file.
+Coming soon, perhaps! <3
 
 ## What's next?
 
