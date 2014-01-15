@@ -18,9 +18,9 @@ suite('submitAnswers', function() {
     });
   });
 
-  // essure that -
+  // ensure that -
   // (1) we can add data to the collection
-  // (2) after data is added, we can retreive it
+  // (2) after data is added, we can retrieve it
   test('server insert : OK', function(done, server, client) {
     server.eval(function() {
       Answers.insert({answerText: "whee!"});
@@ -43,9 +43,9 @@ suite('submitAnswers', function() {
 
 suite('addVotes', function() {
 
-  // essure that -
+  // ensure that -
   // (1) we can add data to the collection
-  // (2) after data is added, we can retreive it
+  // (2) after data is added, we can retrieve it
   test('server insert votes : OK', function(done, server, client) {
     server.eval(function() {
       Answers.insert({answerText: "wheeeeeeeeeee!"});
