@@ -124,6 +124,8 @@ Watch your browser as you add these. You should see the styles update almost imm
 
 You can read more about these packages [here](http://docs.meteor.com/#accountsui), [here](http://docs.meteor.com/#accounts_api), [here](https://github.com/mangasocial/meteor-bootstrap-3).
 
+> You can view the available packages from the terminal by running the command - `meteor list`
+
 #### 2. Add client and server folders
 
 Add two new folders - "client" and "server". Essentially, if Meteor detects a client folder, all the JavaScript within the folder will be run on the client-side, while JavaScript code found within the server folder will run only on the server-side.
