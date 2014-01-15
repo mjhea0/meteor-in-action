@@ -67,7 +67,7 @@ Look at your basic project structure:
 └── mymeteor.js
 ```
 
-Your JS file contains both cient and server code:
+Your JS file contains both client and server code:
   ```javascript
   // client!
   if (Meteor.isClient) {
@@ -96,16 +96,16 @@ The behavior of `{{greeting}}` in the HTML file is controlled by `Template` with
 
 ## Create a Basic App
 
-In this example, we'll be creating an app, which displays a quesion with a list of answers. Users can -
+In this example, we'll be creating an app, which displays a question with a list of answers. Users can -
 
 1. Submit answers
-2. See all submmitted answers
+2. See all submitted answers
 3. Up or down vote answers
 4. Login via Twitter
 5. Only answer or vote if they are logged in
 6. View question but not submitted answers without logging in
 
-Before we start adding this functionaly, let's first restructure the project.
+Before we start adding this functionality, let's first restructure the project.
 
 ## Restructure
 
@@ -212,7 +212,7 @@ Since both client and server code are interconnected, we want to be able to writ
 
 For this reason, your tests will run bit slower.
 
-Before installing Laika, make sure you have [Node.js](http://nodejs.org/), [PhantomJS](http://phantomjs.org/download.html), and [MongoDB](http://docs.mongodb.org/manual/installation/) installed. Also, run [`mongod`](http://docs.mongodb.org/v2.2/reference/mongod/) in a seperate terminal window.  
+Before installing Laika, make sure you have [Node.js](http://nodejs.org/), [PhantomJS](http://phantomjs.org/download.html), and [MongoDB](http://docs.mongodb.org/manual/installation/) installed. Also, run [`mongod`](http://docs.mongodb.org/v2.2/reference/mongod/) in a separate terminal window.  
 
 Install Laika:
 
@@ -306,7 +306,7 @@ First, your browser view should now look like this:
 
 ![part1](https://raw.github.com/mjhea0/meteor-in-action/master/images/part1.png)
 
-Next, arrange your screen so that you can view both your terminal as well as your browser. Also, open up the JS bebug console:
+Next, arrange your screen so that you can view both your terminal as well as your browser. Also, open up the JS debug console:
 
 ![part1-2](https://raw.github.com/mjhea0/meteor-in-action/master/images/part1-2.png)
 
@@ -342,9 +342,9 @@ suite('submitAnswers', function() {
     });
   });
 
-  // essure that -
+  // ensure that -
   // (1) we can add data to the collection
-  // (2) after data is added, we can retreive it
+  // (2) after data is added, we can retrieve it
   test('server insert : OK', function(done, server, client) {
     server.eval(function() {
       Answers.insert({answerText: "whee!"  });
@@ -366,7 +366,7 @@ suite('submitAnswers', function() {
 
 ##### What's going on here?
 
-Basically, we are just testing that the Answers collecton exists and is accesible. See the inline comments for more info.
+Basically, we are just testing that the Answers collection exists and is accessible. See the inline comments for more info.
 
 You may have noticed that Laika runs a bit slow. Well, that's normal - because Laika creates a new, isolated app and database for each test, and each test is also isolated for the other, so you don't have to worry about dumping the database after each test.
 
@@ -394,9 +394,9 @@ $ laika
 
 Congrats! You just wrote your first test!
 
-> If you have not initilizaed a Git repo yet, go ahead and do this now. Then commit the code.
+> If you have not initialized a Git repo yet, go ahead and do this now. Then commit the code.
 
-## Users can see all submmitted answers
+## Users can see all submitted answers
 
 #### 1. Client JS
 
@@ -558,9 +558,9 @@ Add the following code to "index.js":
 ```javascript
 suite('addVotes', function() {
 
-  // essure that -
+  // ensure that -
   // (1) we can add data to the collection
-  // (2) after data is added, we can retreive it
+  // (2) after data is added, we can retrieve it
   test('server insert votes : OK', function(done, server, client) {
     server.eval(function() {
       Answers.insert({answerText: "wheeeeeeeeeee!"});
@@ -579,7 +579,7 @@ suite('addVotes', function() {
 
 ##### What's going on here?
 
-Similar to the last test, we are just testing that the collecton exists and that it returns certain data. This time, though, we are not just testing that the collection exists, but that the `yes` key contains a value of 1.
+Similar to the last test, we are just testing that the collection exists and that it returns certain data. This time, though, we are not just testing that the collection exists, but that the `yes` key contains a value of 1.
 
 ##### Run the test
 
@@ -781,8 +781,8 @@ $ meteor mongo
 MongoDB shell version: 2.4.8
 connecting to: 127.0.0.1:3002/meteor
 meteor:PRIMARY> show dbs;
-local	0.0625GB
-meteor	0.0625GB
+local 0.0625GB
+meteor  0.0625GB
 meteor:PRIMARY> use meteor;
 switched to db meteor
 meteor:PRIMARY> show collections;
