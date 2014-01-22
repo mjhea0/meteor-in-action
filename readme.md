@@ -20,9 +20,11 @@ With that, let's start building …
 6. Users can see all submitted answers
 7. Users can up or down vote answers
 8. Users can login via Twitter
+9. Selenium Tests
 9. Users can only answer or vote if they are logged in
 10. Update Styles
 11. Depoyment
+12. Travis CI
 12. What's next?
 13. Conculsion
 
