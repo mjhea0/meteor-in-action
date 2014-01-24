@@ -845,7 +845,7 @@ All Meteor applications have a package called Insecure pre-installed. This handl
 To remove, just run:
 
 ```shell
-meteor remove insecure
+$ meteor remove insecure
 ```
 
 ## Deployment
