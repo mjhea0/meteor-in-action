@@ -20,7 +20,6 @@ With that, let's start building …
 6. Users can see all submitted answers
 7. Users can up or down vote answers
 8. Users can login via Twitter
-9. Selenium Tests
 9. Users can only answer or vote if they are logged in
 10. Update Styles
 11. Depoyment
@@ -678,7 +677,7 @@ Next, test logging in. If all went well you should see:
 
 #### 4. Automated Test
 
-Since the Twitter login is part of a pre-written package, we do not need to do any unit tests. In general, unit tests should be reserved to code that you have written. Other people's code should be tested within the scope of a functional test. Although you can do functional tests with Laik, I prefer to use a different testing framework. We will write a functional test at the end.
+Since the Twitter login is part of a pre-written package, we do not need to do any unit tests. In general, unit tests should be reserved to code that you have written. Other people's code should be tested within the scope of a functional test, which I cannot figure out how to do with Laika. You could use Selenium or PhantomJS here, but I think just the manual testing is fine for now. The Meteor team really needs to develop an internal testing solution. 
 
 Commit your code. Take a breath. Move on.
 
@@ -839,16 +838,13 @@ meteor:PRIMARY> db.answers.find()
 
 Success! There is a key/value pair for the user - `"submittedBy" : "Ex2bHmCgkygNbByEc"`.
 
-
-#### 5. Automated Test
-
-Coming soon! <3
-
 ## Update Styles
 
 Coming soon, perhaps! <3
 
 ## Deployment
+
+## Travis CI
 
 ## What's next?
 
