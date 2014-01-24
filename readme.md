@@ -342,9 +342,9 @@ Open up your browser's console. Let's add an answer:
 > Answers.insert({answerText: 'Client Side Console Test!'});
 "3D9nQYn87gXQX66ha"
 ```
-You should see the answer apper on the page instantly!!
+You should see the answer appear on the page instantly!!
 
-### 5. Automated Test
+#### 5. Automated Test
 
 Now, add a Laika test by adding the following code to "index.js":
 
@@ -847,6 +847,46 @@ To remove, just run:
 ```shell
 $ meteor remove insecure
 ```
+
+#### 1. Manually Test
+
+Manually test this on your end. With the Meteor server running and your browser open, try to insert an answer in the console. Make sure that the user is logged in.
+
+```shell
+> Answers.insert({answerText: 'Client Console Test!'})
+"oeYhZMmXyBjivJ5uM"
+insert failed: Access denied 
+```
+You should the above insertion error. Also, you know that it's not working if the answer did not get immediately added to the page.
+
+Finally, you can look in Mongo, just to be sure. Open a new window in your terminal, navigate to your "mymeteor" directory, then type the following commands:
+
+```shell
+$ meteor mongo
+MongoDB shell version: 2.4.8
+connecting to: 127.0.0.1:3002/meteor
+meteor:PRIMARY> show dbs;
+local 0.0625GB
+meteor  0.0625GB
+meteor:PRIMARY> use meteor;
+switched to db meteor
+meteor:PRIMARY> show collections;
+answers
+meteor_accounts_loginServiceConfiguration
+questions
+system.indexes
+users
+```
+
+Now search the collection:
+
+```shell
+meteor:PRIMARY> db.answers.find({answerText: 'Client Console Test!'})
+meteor:PRIMARY>
+```
+
+This shouldn't find anything.
+
 
 ## Deployment
 
