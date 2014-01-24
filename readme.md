@@ -12,7 +12,7 @@ With that, let's start building …
 
 ***!!! ADD LINKS TO THE TABLE OF CONTENTS !!!***
 
-1. Setup a Project
+1. [Setup a Project](#setup-a-project)
 2. Create a Basic App
 3. Restructure
 4. Testing Framework
