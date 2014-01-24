@@ -23,7 +23,6 @@ With that, let's start building …
 9. Users can only answer or vote if they are logged in
 11. Remove insecure packages
 11. Depoyment
-12. Travis CI
 12. What's next?
 13. Conculsion
 
