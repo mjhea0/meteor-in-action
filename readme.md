@@ -899,6 +899,8 @@ meteor deploy answers
 
 Check it out at [http://answers.meteor.com/](http://answers.meteor.com/).
 
+> The Meteor servers are for **testing** only; they are not meant for apps in production.
+
 ## Travis CI
 
 ## What's next?
