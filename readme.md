@@ -857,7 +857,7 @@ Manually test this on your end. With the Meteor server running and your browser 
 "oeYhZMmXyBjivJ5uM"
 insert failed: Access denied 
 ```
-You should the above insertion error. Also, you know that it's not working if the answer did not get immediately added to the page.
+You should the see above insertion error. Also, you know that it's not working if the answer did not get immediately added to the page.
 
 Finally, you can look in Mongo, just to be sure. Open a new window in your terminal, navigate to your "mymeteor" directory, then type the following commands:
 
