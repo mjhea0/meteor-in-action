@@ -840,7 +840,13 @@ Success! There is a key/value pair for the user - `"submittedBy" : "Ex2bHmCgkygN
 
 ## Remove insecure packages
 
-Coming soon, perhaps! <3
+All Meteor applications have a package called Insecure pre-installed. This handly little package gives the client the ability to interact with the database, as you saw before. While this may be handy for prototyping you always want to remove it for production applications. 
+
+To remove, just run:
+
+```shell
+meteor remove insecure
+```
 
 ## Deployment
 
