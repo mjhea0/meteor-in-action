@@ -887,14 +887,27 @@ meteor:PRIMARY>
 
 This shouldn't find anything.
 
-
 ## Deployment
+
+Although there are a number of deployment options, pushing your new app to the Meteor test servers is by far the easiest. Simply run the command: `meteor deploy <YOUR-APP-NAME-HERE>`.
+
+So -
+
+```shell
+meteor deploy answers
+```
+
+Check it out at [http://answers.meteor.com/](http://answers.meteor.com/).
 
 ## Travis CI
 
 ## What's next?
 
-Yay! Write some challenges!
+1. Deploy to Heroku
+2. Selenium Tests
+3. Added functionality
 
 ## Conclusion
+
+That's it. Give me some feedback. In the coming weeks, I'll be deploying an app into production. Stay tuned.
 
