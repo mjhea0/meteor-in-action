@@ -893,7 +893,7 @@ Although there are a number of deployment options, pushing your new app to the M
 So -
 
 ```shell
-meteor deploy answers
+$ meteor deploy answers
 ```
 
 Check it out at [http://answers.meteor.com/](http://answers.meteor.com/).
@@ -905,8 +905,8 @@ Don't forget to commit!
 ## What's next?
 
 1. Deploy to Heroku
-2. Selenium Tests
-3. Added functionality
+2. Setup Selenium Tests
+3. Add additional functionality
 
 ## Conclusion
 
