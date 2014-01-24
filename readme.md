@@ -10,8 +10,6 @@ With that, let's start building …
 
 ## TOC
 
-***!!! ADD LINKS TO THE TABLE OF CONTENTS !!!***
-
 1. [Setup a Project](#setup-a-project)
 2. Create a Basic App
 3. Restructure
@@ -22,9 +20,9 @@ With that, let's start building …
 8. Users can login via Twitter
 9. Users can only answer or vote if they are logged in
 11. Remove insecure packages
-11. Depoyment
+11. Deployment
 12. What's next?
-13. Conculsion
+13. Conclusion
 
 ## Setup a Project
 
@@ -839,7 +837,7 @@ Success! There is a key/value pair for the user - `"submittedBy" : "Ex2bHmCgkygN
 
 ## Remove insecure packages
 
-All Meteor applications have a package called Insecure pre-installed. This handly little package gives the client the ability to interact with the database, as you saw before. While this may be handy for prototyping you always want to remove it for production applications. 
+All Meteor applications have a package called Insecure pre-installed. This handy little package gives the client the ability to interact with the database, as you saw before. While this may be handy for prototyping you always want to remove it for production applications. 
 
 To remove, just run:
 
@@ -893,7 +891,7 @@ Although there are a number of deployment options, pushing your new app to the M
 So -
 
 ```shell
-$ meteor deploy answers
+meteor deploy answers
 ```
 
 Check it out at [http://answers.meteor.com/](http://answers.meteor.com/).
