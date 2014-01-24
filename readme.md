@@ -901,7 +901,7 @@ Check it out at [http://answers.meteor.com/](http://answers.meteor.com/).
 
 > The Meteor servers are for **testing** only; they are not meant for apps in production.
 
-## Travis CI
+Don't forget to commit! 
 
 ## What's next?
 
