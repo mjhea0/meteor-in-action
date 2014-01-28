@@ -126,11 +126,11 @@ Before we start adding this functionality, let's first restructure the project.
 #### 1. Add Packages (err Smart Packages!)
 
 ```shell
-$ meteor add accounts-ui
+$ mrt add accounts-ui
 accounts-ui: Simple templates to add login widgets to an app
-$ meteor add accounts-twitter
+$ mrt add accounts-twitter
 accounts-twitter: Login service for Twitter accounts
-$ meteor add bootstrap-3
+$ mrt add bootstrap-3
 bootstrap-3: Provides bootstrap 3.
 ```
 
