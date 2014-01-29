@@ -4,7 +4,7 @@ Meteor is a next generation framework used for rapidly developing web apps, whic
 
 Check out the excellent Meteor [documentation](http://docs.meteor.com/) for more information. 
 
-*Please note: Before you can follow this tutorial, please install [Node and npm](http://nodejs.org/download/).*
+**Please note: Before you can follow this tutorial, please install [Node and npm](http://nodejs.org/download/).**
 
 With that, let's start building …
 
