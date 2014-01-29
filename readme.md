@@ -2,11 +2,13 @@
 
 Meteor is a next generation framework used for rapidly developing web apps, which seamlessly combines popular packages like MongoDB, Node.js, and jQuery, to name a few.
 
-Check out the excellent Meteor [documentation](http://docs.meteor.com/) for more information. Also, before you can follow this tutorial, please install [Node and npm](http://nodejs.org/download/).
+Check out the excellent Meteor [documentation](http://docs.meteor.com/) for more information. 
+
+*Please note: Before you can follow this tutorial, please install [Node and npm](http://nodejs.org/download/).*
 
 With that, let's start building …
 
-> Please note: This tutorial uses Meteor version `0.7.0.1` - which, as of writing, is the latest version
+> This tutorial uses Meteor version `0.7.0.1` - which, as of writing, is the latest version
 
 ## TOC
 
